@@ -5,8 +5,7 @@ pub fn main() !void {
     var bw = std.io.bufferedWriter(stdout_file);
     const stdout = bw.writer();
 
-    const content = @embedFile("./main.zig");
-    try stdout.print("{s}\n", .{content});
+    try stdout.print("{s}\n", .{@embedFile("./main.zig")});
 
     try bw.flush();
 }
